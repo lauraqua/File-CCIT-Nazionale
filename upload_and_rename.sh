@@ -3,7 +3,7 @@
 compressed=$1 # il file passato va nella variabile compressed
 uncompressed="${compressed%.gz}" #creo una variabile che sarà il riferimento per il file non compresso
 
-mkdir -p ./caricati # ho fatto in modo che i file dezippati venissero inseriti in una cartella specifica invece che eliminati, è questa
+#mkdir -p ./caricati # ho fatto in modo che i file dezippati venissero inseriti in una cartella specifica invece che eliminati, è questa
 touch processed.txt # crea il file di testo in caso non esista già
 
 if grep -q -F "$uncompressed" processed.txt; then #controlla che il file in analisi non sia stato già caricato
@@ -18,5 +18,4 @@ curl -s -X POST --data-binary "@$uncompressed" "http://localhost:8080/upload/$un
 
 # potenzialmente si può aggiungere il curl di showel
 echo "$uncompressed" >> processed.txt
-mv "$uncompressed" ./caricati/ #invece che eliminare i file vengono spostati
-#prima c'era un rm "$uncompressed" 
+rm "$uncompressed" #elimino i file
