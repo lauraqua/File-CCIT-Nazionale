@@ -10,10 +10,5 @@ if [ $# != 1 ]; then
 	exit 2
 fi
 
-#if [ "${uncompressed_file}" = "$(echo "${uncompressed_file}" | sed -e 's/_uncompressed//')" ]; then
-#	echo "$0: invalid filename ${uncompressed_file}"
-#	exit 1
-#fi
-
 gzip "${uncompressed_file}"
 mv "${compressed}" "$(echo "${uncompressed_file}" | sed -e 's/_uncompressed//')" 
