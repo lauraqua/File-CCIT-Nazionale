@@ -11,4 +11,3 @@ if [ $# != 1 ]; then
 fi
 
 gzip "${uncompressed_file}"
-mv "${compressed}" "$(echo "${uncompressed_file}" | sed -e 's/_uncompressed//')" 
