@@ -3,7 +3,6 @@
 set -eu
 
 uncompressed_file=$1
-compressed="${uncompressed_file%.gz}"
 
 if [ $# != 1 ]; then
 	echo "usage: $0 file"
